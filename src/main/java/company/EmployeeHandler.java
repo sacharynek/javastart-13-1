@@ -102,13 +102,13 @@ public class EmployeeHandler {
         bw.newLine();
         bw.write("Największa wypłata: " + maxPay(emptab));
         bw.newLine();
-        bw.write("Łączna liczba pracowników: " +emptab.length);
+        bw.write("Łączna liczba pracowników: " + emptab.length);
         bw.newLine();
 
         HashMap<String, Integer> mapa = employeesByDepartment(emptab);
         Set<String> dzialy = mapa.keySet();
-        for(String dzial : dzialy){
-            bw.write("Liczba pracowników w dziale "+dzial+" : "+mapa.get(dzial));
+        for (String dzial : dzialy) {
+            bw.write("Liczba pracowników w dziale " + dzial + " : " + mapa.get(dzial));
             bw.newLine();
         }
 
