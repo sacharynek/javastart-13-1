@@ -1,9 +1,13 @@
 package company;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Set;
 
 public class EmployeeHandler {
 
@@ -49,7 +53,7 @@ public class EmployeeHandler {
         return sum * 1.0 / employeeTab.length;
     }
 
-    public int minPay(Employee[] employeeTab) {
+    public double minPay(Employee[] employeeTab) {
         int min = employeeTab[0].getPensja();
         for (Employee emp : employeeTab) {
             if (emp.getPensja() < min) {
@@ -87,4 +91,30 @@ public class EmployeeHandler {
 
     }
 
+    public void writeStatisticsToFile(Employee[] emptab, String fileName) throws IOException {
+
+        FileWriter fw = new FileWriter(fileName);
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        bw.write("Średnia wypłata: " + avgPay(emptab));
+        bw.newLine();
+        bw.write("Najmniejsza wypłata: " + minPay(emptab));
+        bw.newLine();
+        bw.write("Największa wypłata: " + maxPay(emptab));
+        bw.newLine();
+        bw.write("Łączna liczba pracowników: " +emptab.length);
+        bw.newLine();
+
+        HashMap<String, Integer> mapa = employeesByDepartment(emptab);
+        Set<String> dzialy = mapa.keySet();
+        for(String dzial : dzialy){
+            bw.write("Liczba pracowników w dziale "+dzial+" : "+mapa.get(dzial));
+            bw.newLine();
+        }
+
+        bw.newLine();
+
+        bw.flush();
+
+    }
 }

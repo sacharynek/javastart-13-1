@@ -1,6 +1,7 @@
 import company.Employee;
 import company.EmployeeHandler;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Main {
@@ -15,5 +16,11 @@ public class Main {
         System.out.println(eh.maxPay(emptab));
         System.out.println(eh.avgPay(emptab));
         System.out.println(eh.employeesByDepartment(emptab));
+
+        try {
+            eh.writeStatisticsToFile(emptab, "pliczek1.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
