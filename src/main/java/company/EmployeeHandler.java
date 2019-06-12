@@ -22,13 +22,13 @@ public class EmployeeHandler {
         return employeeTab;
     }
 
-    public Employee readEmployee(String line) {
+    private Employee readEmployee(String line) {
         String[] employeeInTabForm = line.split(";");
         //tutaj zrobić buildera !!!!
         return new Employee(employeeInTabForm[0], employeeInTabForm[1], employeeInTabForm[2], employeeInTabForm[3], Integer.parseInt(employeeInTabForm[4]));
     }
 
-    public String readFile(String fileName) {
+    private String readFile(String fileName) {
         File file = new File(fileName);
         StringBuilder sb = new StringBuilder();
 
