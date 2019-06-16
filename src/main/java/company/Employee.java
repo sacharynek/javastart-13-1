@@ -6,7 +6,7 @@ public class Employee {
     private int wage;
 
 
-    public Employee(String fName, String lName, String pesel, String department, int wage) {
+    Employee(String fName, String lName, String pesel, String department, int wage) {
         this.fName = fName;
         this.lName = lName;
         this.pesel = pesel;
@@ -14,11 +14,11 @@ public class Employee {
         this.wage = wage;
     }
 
-    public String getDepartment() {
+    String getDepartment() {
         return department;
     }
 
-    public int getWage() {
+    int getWage() {
         return wage;
     }
 
