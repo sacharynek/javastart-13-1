@@ -32,7 +32,7 @@ public class EmployeeHandler {
         File file = new File(fileName);
         StringBuilder sb = new StringBuilder();
 
-        try (Scanner sc = new Scanner(file);) {
+        try (Scanner sc = new Scanner(file)) {
             while (sc.hasNextLine()) {
                 sb.append(sc.nextLine());
                 sb.append("\n");
