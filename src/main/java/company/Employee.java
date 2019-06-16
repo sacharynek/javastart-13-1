@@ -2,37 +2,34 @@ package company;
 
 public class Employee {
 
-    private String imię, nazwisko, pesel, dział;
-    private int pensja;
+    private String fName, lName, pesel, department;
+    private int wage;
 
 
-    public Employee() {
-    }
-
-    public Employee(String imię, String nazwisko, String pesel, String dział, int pensja) {
-        this.imię = imię;
-        this.nazwisko = nazwisko;
+    public Employee(String fName, String lName, String pesel, String department, int wage) {
+        this.fName = fName;
+        this.lName = lName;
         this.pesel = pesel;
-        this.dział = dział;
-        this.pensja = pensja;
+        this.department = department;
+        this.wage = wage;
     }
 
-    public String getDział() {
-        return dział;
+    public String getDepartment() {
+        return department;
     }
 
-    public int getPensja() {
-        return pensja;
+    public int getWage() {
+        return wage;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "imię='" + imię + '\'' +
-                ", nazwisko='" + nazwisko + '\'' +
+                "imię='" + fName + '\'' +
+                ", nazwisko='" + lName + '\'' +
                 ", pesel='" + pesel + '\'' +
-                ", dział='" + dział + '\'' +
-                ", pensja=" + pensja +
+                ", dział='" + department + '\'' +
+                ", pensja=" + wage +
                 '}';
     }
 }

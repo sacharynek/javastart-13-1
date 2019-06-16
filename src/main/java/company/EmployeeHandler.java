@@ -24,7 +24,7 @@ public class EmployeeHandler {
 
     private Employee readEmployee(String line) {
         String[] employeeInTabForm = line.split(";");
-        //tutaj zrobić buildera !!!!
+        //tutaj zrobić buildera, bo to jest za długie i źle wygląda!!!!
         return new Employee(employeeInTabForm[0], employeeInTabForm[1], employeeInTabForm[2], employeeInTabForm[3], Integer.parseInt(employeeInTabForm[4]));
     }
 
@@ -48,16 +48,16 @@ public class EmployeeHandler {
     public double avgPay(Employee[] employeeTab) {
         int sum = 0;
         for (Employee emp : employeeTab) {
-            sum += emp.getPensja();
+            sum += emp.getWage();
         }
         return sum * 1.0 / employeeTab.length;
     }
 
     public double minPay(Employee[] employeeTab) {
-        int min = employeeTab[0].getPensja();
+        int min = employeeTab[0].getWage();
         for (Employee emp : employeeTab) {
-            if (emp.getPensja() < min) {
-                min = emp.getPensja();
+            if (emp.getWage() < min) {
+                min = emp.getWage();
             }
         }
 
@@ -67,8 +67,8 @@ public class EmployeeHandler {
     public double maxPay(Employee[] employeeTab) {
         int max = 0;
         for (Employee emp : employeeTab) {
-            if (emp.getPensja() > max) {
-                max = emp.getPensja();
+            if (emp.getWage() > max) {
+                max = emp.getWage();
             }
         }
 
@@ -79,11 +79,11 @@ public class EmployeeHandler {
         HashMap<String, Integer> output = new HashMap<String, Integer>();
 
         for (Employee emp : employeeTab) {
-            if (!output.containsKey(emp.getDział())) {
-                output.put(emp.getDział(), 1);
+            if (!output.containsKey(emp.getDepartment())) {
+                output.put(emp.getDepartment(), 1);
             } else {
-                int currentVal = output.get(emp.getDział());
-                output.put(emp.getDział(), ++currentVal);
+                int currentVal = output.get(emp.getDepartment());
+                output.put(emp.getDepartment(), ++currentVal);
             }
         }
 
